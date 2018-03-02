@@ -1,0 +1,211 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "res/xml/config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"SQLitePlugin\"><param name=\"android-package\" value=\"io.sqlc.SQLitePlugin\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" value=\"io.ionic.keyboard.IonicKeyboard\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"UniqueDeviceID\"><param name=\"android-package\" value=\"hu.dpal.phonegap.plugins.UniqueDeviceID\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"UserAgent\"><param name=\"android-package\" value=\"im.ltdev.cordova.UserAgent\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"EmailComposer\"><param name=\"android-package\" value=\"de.appplant.cordova.emailcomposer.EmailComposer\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "AndroidManifest.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />",
+              "count": 1
+            }
+          ],
+          "/manifest": [
+            {
+              "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
+              "count": 1
+            }
+          ],
+          "application": [
+            {
+              "xml": "<provider android:authorities=\"${applicationId}.provider\" android:exported=\"false\" android:grantUriPermissions=\"true\" android:name=\"de.appplant.cordova.emailcomposer.Provider\"><meta-data android:name=\"android.support.FILE_PROVIDER_PATHS\" android:resource=\"@xml/emailcomposer_provider_paths\" /></provider>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-uniquedeviceid": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "im.ltdev.cordova.UserAgent": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-email-composer": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
+      ]
+    },
+    {
+      "id": "cordova-plugin-splashscreen.SplashScreen",
+      "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+      "pluginId": "cordova-plugin-splashscreen",
+      "clobbers": [
+        "navigator.splashscreen"
+      ]
+    },
+    {
+      "id": "cordova-plugin-statusbar.statusbar",
+      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+      "pluginId": "cordova-plugin-statusbar",
+      "clobbers": [
+        "window.StatusBar"
+      ]
+    },
+    {
+      "id": "cordova-sqlite-storage.SQLitePlugin",
+      "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
+      "pluginId": "cordova-sqlite-storage",
+      "clobbers": [
+        "SQLitePlugin"
+      ]
+    },
+    {
+      "id": "ionic-plugin-keyboard.keyboard",
+      "file": "plugins/ionic-plugin-keyboard/www/android/keyboard.js",
+      "pluginId": "ionic-plugin-keyboard",
+      "clobbers": [
+        "cordova.plugins.Keyboard"
+      ],
+      "runs": true
+    },
+    {
+      "id": "cordova-plugin-dialogs.notification",
+      "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+      "pluginId": "cordova-plugin-dialogs",
+      "merges": [
+        "navigator.notification"
+      ]
+    },
+    {
+      "id": "cordova-plugin-dialogs.notification_android",
+      "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+      "pluginId": "cordova-plugin-dialogs",
+      "merges": [
+        "navigator.notification"
+      ]
+    },
+    {
+      "id": "cordova-plugin-uniquedeviceid.UniqueDeviceID",
+      "file": "plugins/cordova-plugin-uniquedeviceid/www/uniqueid.js",
+      "pluginId": "cordova-plugin-uniquedeviceid",
+      "merges": [
+        "window.plugins.uniqueDeviceID"
+      ]
+    },
+    {
+      "id": "im.ltdev.cordova.UserAgent.UserAgent",
+      "file": "plugins/im.ltdev.cordova.UserAgent/www/UserAgent.js",
+      "pluginId": "im.ltdev.cordova.UserAgent",
+      "clobbers": [
+        "UserAgent"
+      ]
+    },
+    {
+      "id": "cordova-plugin-email-composer.EmailComposer",
+      "file": "plugins/cordova-plugin-email-composer/www/email_composer.js",
+      "pluginId": "cordova-plugin-email-composer",
+      "clobbers": [
+        "cordova.plugins.email",
+        "plugin.email"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-console": "1.0.5",
+    "cordova-plugin-device": "1.1.4",
+    "cordova-plugin-splashscreen": "4.0.3",
+    "cordova-plugin-statusbar": "2.2.2",
+    "cordova-plugin-whitelist": "1.3.1",
+    "cordova-sqlite-storage": "2.0.4",
+    "ionic-plugin-keyboard": "2.2.1",
+    "cordova-plugin-dialogs": "2.0.1",
+    "cordova-plugin-uniquedeviceid": "1.3.2",
+    "im.ltdev.cordova.UserAgent": "1.0.1",
+    "cordova-plugin-email-composer": "0.8.15"
+  }
+}
