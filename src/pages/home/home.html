@@ -1,17 +1,21 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+	<ion-navbar color="primary">
+		<ion-title>Profiles</ion-title>
+	</ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content style="background-color: lightslategray;">
+	<ion-grid>
+		<ion-row> 
+			<ion-col *ngFor="let profile of displayProfiles" col-6>
+					<ion-card style="box-shadow: 7px 7px 3px darkslategray;" (click)="submit(profile.company_id)">
+								<ion-card-header style="min-height:120px;max-height:120px;white-space: normal;">
+								<img src="{{profile.image}}" alt="Image" onerror="this.src='assets/imgs/atlicon.png';">
+								</ion-card-header>
+								<ion-card-content style="min-height:30px;max-height:30px;margin-bottom:3%;">
+										<h5 style="text-align:center;padding-bottom:2%;font-family:'Times New Roman', Times, serif;">{{profile.company_name}}</h5>
+								</ion-card-content>
+							</ion-card>
+				</ion-col>
+			</ion-row>
+	</ion-grid>
 </ion-content>

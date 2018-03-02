@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { ServicesProvider } from '../providers/services/services';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @Component({

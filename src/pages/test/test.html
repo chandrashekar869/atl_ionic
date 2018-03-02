@@ -1,0 +1,50 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{course_name}}</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+		<div align='right' style="font-size:18px;font-weight: bolder;">&nbsp;<span style="float:left;">{{currentPage}}/{{totalPages}}</span><span style="float:right;"><ion-icon *ngIf="showTimeTestType.indexOf(courseType)!=-1" name="alarm"></ion-icon>&nbsp;{{timeleft}}</span></div>		
+	<ion-card >
+		<ion-card-header style="white-space: normal;">
+			{{getQuesn}}
+		</ion-card-header>
+	</ion-card>
+	<ion-list radio-group [(ngModel)]="answer" selected> 
+		<div  *ngFor="let options of getOptn ; let i = index ">
+			<ion-item *ngIf="showCheckbox==1">
+				<ion-label>{{options.option}}</ion-label>
+				<ion-radio id='radioAll'  value="{{i}}"  ></ion-radio>
+			</ion-item>
+			<ion-item *ngIf="showCheckbox>1">
+					<ion-label>{{options.option}}</ion-label>
+				<ion-checkbox id="checkboxAll" [checked]="isChecked(i)" (ionChange)="multiselect(i)"></ion-checkbox>
+			</ion-item>
+		</div>
+	</ion-list>
+	<div ng-app="MyApplication" ng-controller="MyController">
+		<div ng-repeat="item in items track by $index" ng-show="$index == indexToShow">
+		{{item}}
+		</div>
+	</div>
+	<ion-footer>
+		<ion-toolbar>	
+			<ion-list>
+				<ion-item>
+					<button ion-button color="danger" icon-left (click)="loadPreQuestion()">
+						<ion-icon name="arrow-dropleft"></ion-icon>
+						Previous 
+					</button>
+					<button  id='loadnext' ion-button color="danger" icon-right (click)="loadNextQuestion()">
+						Next
+						<ion-icon name="arrow-dropright"></ion-icon>
+					</button>
+					<button  id='submit' ion-button color="primary" icon-right (click)="submit()">
+						Submit
+						<ion-icon name="arrow-dropright"></ion-icon>
+					</button>
+					</ion-item>
+			</ion-list>
+		</ion-toolbar>
+	</ion-footer>
+</ion-content>

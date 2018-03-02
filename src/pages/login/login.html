@@ -1,0 +1,104 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+  
+    <ion-navbar  hideBackButton="true" color="danger" >
+      <ion-title text-center style="font-size: 30px;">Anytime Learn</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content style="background-color:#ffffff;" padding>    
+    <div text-center style="margin-top:10%;">
+    <img src="assets/imgs/atlicon.png" alt="AnytimeLearn logo"  width=50% height=50%>
+    <h1 style="color:#ffa726;font-size:30px;font-family:Summit;font-style:normal;"><b><span style="color:black">A</span>ny<span style="color:black"> T</span>ime<span style="color:black"> L</span>earn</b></h1>
+    </div>
+<div id="displayList" style="bottom: 0.5%;
+position: absolute;margin-top:5%;
+width: 90%;">
+    <ion-list radio-group (ionChange)="radioChangeHandler($event)" > 
+     
+      <div  *ngFor="let options of typesOfUsers ; let i = index ">
+          <br />
+        <ion-item style="background-color:#ffa726;" >
+          <ion-label >{{options}}</ion-label>
+          <ion-radio id='radioAll'  value="{{i}}"  ></ion-radio>
+        </ion-item>
+      </div>
+    </ion-list>
+  </div>
+  <form style="bottom: 0.5%;
+  position: absolute;margin-top:5%;
+  width: 90%;" id="SignIn" disabled="disable_signin"  (ngSubmit)="submit(0)">
+    <div text-center  style="background-color:#ffa726;">
+      <ion-input id="emailid" [(ngModel)]="username" style="border:1px solid white;color:darkslategray;background-color:white;" type="email" name="username" placeholder="Enter Email" (ionChange)="usernamecheck(0)" required ></ion-input>
+      <ion-input id="pass_doc" [(ngModel)]="phoneNumber" style="border:1px solid white;margin-top:1%;color:darkslategray;background-color:white;" type="number" name="phoneNumber" placeholder="Enter Phone Number" (ionChange)="usernamecheck(1)" required ></ion-input>
+    </div>
+    <button  type="submit" style="margin-top:5%;" ion-button block style="background-color:#ffa726;">Register</button>
+    <h5 text-center style="margin-top:5%;font-style:normal; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:#f64f31;text-decoration:underline;" (click)="setDisplayForm('displayList')">Not a student?</h5>
+  </form>
+  <form style="bottom: 0.5%;
+  position: absolute;margin-top:5%; 
+  width: 90%;" id="SignInUser" disabled="disable_signin"  (ngSubmit)="submit(1)">
+    <div text-center  style="background-color:#ffa726;">
+      <ion-input id="emailid" [(ngModel)]="username" style="border:1px solid white;color:darkslategray;background-color:white;" type="email" name="username" placeholder="Enter Email" (ionChange)="usernamecheck(0)" required ></ion-input>
+      <ion-input id="pass_doc" [(ngModel)]="phoneNumber" style="border:1px solid white;margin-top:1%;color:darkslategray;background-color:white;" type="number" name="phoneNumber" placeholder="Enter Phone Number" (ionChange)="usernamecheck(1)" required ></ion-input>
+    </div>
+    <button  type="submit" style="margin-top:5%;" ion-button block style="background-color:#ffa726;">Register</button>
+    <h5 text-center style="margin-top:5%;font-style:normal; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:#f64f31;text-decoration:underline;" (click)="setDisplayForm('displayListUser')">Not a General User?</h5>
+  </form>
+  <form style="bottom: 0.5%;
+  position: absolute;margin-top:5%;
+  width: 90%;" id="EmployeeSignIn" disabled="disable_signin"  (ngSubmit)="submit(2)">
+    <div text-center  style="background-color:#ffa726;">
+      <ion-input id="emailid" [(ngModel)]="username" style="border:1px solid white;color:darkslategray;background-color:white;" type="text" name="username" placeholder="Enter Company Id" required ></ion-input>
+    </div>
+    <button  type="submit" style="margin-top:5%;" ion-button block style="background-color:#ffa726;">Proceed</button>
+    <h5 text-center style="margin-top:5%;font-style:normal; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:#f64f31;text-decoration:underline;" (click)="setDisplayForm('displayList')">Not a employee?</h5>
+  </form>
+  <form style="bottom: 0.5%;
+  position: absolute;margin-top:5%;
+  width: 90%;" id="CompanySignIn3" disabled="disable_signin"  (ngSubmit)="submitCompanyData(3)">
+    <div text-center  style="background-color:#ffa726;">
+      <ion-input id="emailid"  [(ngModel)]="username" style="border:1px solid white;color:darkslategray;background-color:white;" type="text" name="username" placeholder="Enter Employee Id" required ></ion-input>
+      <ion-input id="pass_doc" [(ngModel)]="phoneNumber" style="border:1px solid white;margin-top:1%;color:darkslategray;background-color:white;" type="number" name="phoneNumber" placeholder="Enter Phone Number" (ionChange)="usernamecheck(1)" required ></ion-input>  
+    </div>
+    <button  type="submit" style="margin-top:5%;" ion-button block style="background-color:#ffa726;">Proceed</button>
+    <h5 text-center style="margin-top:5%;font-style:normal; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:#f64f31;text-decoration:underline;" (click)="setDisplayForm('displayList')">Not a employee?</h5>
+  </form>
+  <form style="bottom: 0.5%;
+  position: absolute;margin-top:5%;
+  width: 90%;" id="CompanySignIn2" disabled="disable_signin"  (ngSubmit)="submitCompanyData(2)">
+    <div text-center  style="background-color:#ffa726;">
+      <ion-input id="pass_doc" [(ngModel)]="phoneNumber" style="border:1px solid white;margin-top:1%;color:darkslategray;background-color:white;" type="number" name="phoneNumber" placeholder="Enter Phone Number" (ionChange)="usernamecheck(1)" required ></ion-input>  
+    </div>
+    <button  type="submit" style="margin-top:5%;" ion-button block style="background-color:#ffa726;">Proceed</button>
+    <h5 text-center style="margin-top:5%;font-style:normal; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:#f64f31;text-decoration:underline;" (click)="setDisplayForm('displayList')">Not a employee?</h5>
+  </form>
+  <form style="bottom: 0.5%;
+  position: absolute;margin-top:5%;
+  width: 90%;" id="CompanySignIn1" disabled="disable_signin"  (ngSubmit)="submitCompanyData(1)">
+    <div text-center  style="background-color:#ffa726;">
+      <ion-input id="emailid"  [(ngModel)]="username" style="border:1px solid white;color:darkslategray;background-color:white;" type="text" name="username" (ionChange)="usernamecheck(0)" placeholder="Enter email Id" required ></ion-input>
+      <ion-input id="pass_doc" [(ngModel)]="phoneNumber" style="border:1px solid white;margin-top:1%;color:darkslategray;background-color:white;" type="number" name="phoneNumber" placeholder="Enter Phone Number" (ionChange)="usernamecheck(1)" required ></ion-input>  
+    </div>
+    <button  type="submit" style="margin-top:5%;" ion-button block style="background-color:#ffa726;">Proceed</button>
+    <h5 text-center style="margin-top:5%;font-style:normal; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:#f64f31;text-decoration:underline;" (click)="setDisplayForm('displayList')">Not a employee?</h5>
+  </form>
+  <form style="bottom: 0.5%;
+  position: absolute;margin-top:5%;
+  width: 90%;" id="CompanySignIn4" disabled="disable_signin"  (ngSubmit)="submitCompanyData(4)">
+    <div text-center  style="background-color:#ffa726;">
+      <ion-input id="emailid"  [(ngModel)]="username" style="border:1px solid white;color:darkslategray;background-color:white;" type="text" name="username" placeholder="Enter Login Id" required ></ion-input>
+      <ion-input id="pass_doc" [(ngModel)]="phoneNumber" style="border:1px solid white;margin-top:1%;color:darkslategray;background-color:white;" type="number" name="phoneNumber" placeholder="Enter Phone Number" (ionChange)="usernamecheck(1)" required ></ion-input>  
+    </div>
+    <button  type="submit" style="margin-top:5%;" ion-button block style="background-color:#ffa726;">Proceed</button>
+    <h5 text-center style="margin-top:5%;font-style:normal; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:#f64f31;text-decoration:underline;" (click)="setDisplayForm('displayList')">Not a employee?</h5>
+  </form>
+</ion-content>
+  
